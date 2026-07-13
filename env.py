@@ -4,16 +4,19 @@ Isaac Gym environment for robotic arm grasping manipulation tasks.
 """
 
 import os
-import numpy as np
-import torch
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# IMPORTANT: isaacgym MUST be imported before torch!
 from isaacgym import gymapi, gymtorch
 from isaacgym.torch_utils import (
     torch_rand_float,
-    get_euler_xyz,
-    quat_rotate_inverse,
     to_torch,
-    wxyz_to_xyzw,
 )
+
+import torch
+import numpy as np
+
 from base_env import BaseEnv
 from configs.tron2_arm_config import Tron2ArmCfg, Tron2ArmCfgPPO
 
