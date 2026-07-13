@@ -3,10 +3,14 @@ Tron2 Arm Grasping - Gym Task Registration
 Registers the task with Isaac Gym's task factory.
 """
 
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from isaacgym import gymapi
-from legged_gym.envs.base.base_env import BaseEnv
-from legged_gym.envs.tron2_arm.tron2_arm_env import Tron2ArmEnv
-from legged_gym.envs.tron2_arm.tron2_arm_config import Tron2ArmGraspCfg, Tron2ArmGraspCfgPPO
+from base_env import BaseEnv
+from env import Tron2ArmEnv
+from configs.tron2_arm_grasp_config import Tron2ArmGraspCfg, Tron2ArmGraspCfgPPO
 
 
 class Tron2ArmGraspTask:

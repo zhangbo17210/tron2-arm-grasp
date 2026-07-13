@@ -3,7 +3,7 @@ Tron2 Arm Grasping Task Configuration
 Task-specific hyperparameters for Isaac Gym training.
 """
 
-from legged_gym.envs.base.legged_robot_config import Tron2ArmCfg, Tron2ArmCfgPPO
+from configs.tron2_arm_config import Tron2ArmCfg, Tron2ArmCfgPPO
 
 
 class Tron2ArmGraspCfg(Tron2ArmCfg):
@@ -64,7 +64,7 @@ class Tron2ArmGraspCfg(Tron2ArmCfg):
         push_robots = False
 
     class asset(Tron2ArmCfg.asset):
-        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/tron2_arm/tron2_arm.urdf"
+        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/tron2_arm.urdf"
 
     class normalization:
         class obs_scales:

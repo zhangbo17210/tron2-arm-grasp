@@ -125,7 +125,7 @@ class Tron2ArmCfg:
         push_robots = False
 
     class asset:
-        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/tron2_arm/tron2_arm.urdf"
+        file = "{LEGGED_GYM_ROOT_DIR}/resources/robots/tron2_arm.urdf"
         name = "tron2_arm"
         penalize_contacts_on = ["base", "link1", "link2"]
         terminate_after_contacts_on = ["gripper_tip"]

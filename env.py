@@ -14,13 +14,11 @@ from isaacgym.torch_utils import (
     to_torch,
     wxyz_to_xyzw,
 )
-from legged_gym.envs.base.base_env import BaseEnv
-from legged_gym.envs.base.legged_robot_config import Tron2ArmCfg, Tron2ArmCfgPPO
+from base_env import BaseEnv
+from configs.tron2_arm_config import Tron2ArmCfg, Tron2ArmCfgPPO
 
-# Setup LEGGED_GYM_ROOT_DIR
-LEGGED_GYM_ROOT_DIR = os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
+# Setup LEGGED_GYM_ROOT_DIR (repo root)
+LEGGED_GYM_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 class Tron2ArmEnv(BaseEnv):

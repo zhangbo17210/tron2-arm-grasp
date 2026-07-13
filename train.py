@@ -1,14 +1,20 @@
 """
 Tron2 Arm Grasping Training Entry Point
 Usage:
-    python legged_gym/scripts/train.py --task=Tron2ArmGrasp --resume
+    python train.py --task=Tron2ArmGrasp --resume
 """
 
 import argparse
+import sys
+import os
+
+# Add repo root to path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import time
 from datetime import datetime
-from legged_gym.envs.tron2_arm.tron2_arm_config import Tron2ArmGraspCfg, Tron2ArmGraspCfgPPO
-from legged_gym.gym.tron2_arm_grasp import Tron2ArmGraspTask
+from configs.tron2_arm_grasp_config import Tron2ArmGraspCfg, Tron2ArmGraspCfgPPO
+from task import Tron2ArmGraspTask
 from rsl_rl.runners import OnPolicyRunner
 
 
