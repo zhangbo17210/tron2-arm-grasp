@@ -56,7 +56,7 @@ def main():
     device_id = int(device.split(":")[1]) if ":" in device else 0
 
     sim_params = gymapi.SimParams()
-    sim_params.up_axis = 1  # Z-up (matches config up_axis=1, gravity=[0,0,-9.81])
+    sim_params.up_axis = gymapi.UpAxis(1)  # 1=Y-up (matches config up_axis=1)
     sim_params.dt = Tron2ArmGraspCfg.sim.dt
     sim_params.substeps = Tron2ArmGraspCfg.sim.substeps
     sim_params.physx.use_gpu = device_type == "cuda"
