@@ -1,6 +1,10 @@
 """
 Tron2 Arm Grasping Training Entry Point
 Run with: gm-run train.py --task=Tron2ArmGrasp --headless
+
+IMPORTANT: isaacgym MUST be imported before torch!
+Isaac Gym's gymdeps checks sys.modules for torch and raises ImportError
+if torch was loaded first.
 """
 
 import argparse
@@ -10,12 +14,18 @@ import os
 # Ensure repo root is in path for sub-module imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+# ── ISAAC GYM FIRST (must be before torch!) ────────────────────────
+from isaacgym import gymapi
+
+# ── Standard libs ──────────────────────────────────────────────────
 import time
-import torch
-import numpy as np
 from datetime import datetime
 
-# ── Config imports ──────────────────────────────────────────────────
+# ── Third-party libs (after isaacgym) ──────────────────────────────
+import torch
+import numpy as np
+
+# ── Config imports ─────────────────────────────────────────────────
 from configs.tron2_arm_grasp_config import Tron2ArmGraspCfg, Tron2ArmGraspCfgPPO
 from task import Tron2ArmGraspTask
 from rsl_rl.runners import OnPolicyRunner
@@ -44,8 +54,6 @@ def main():
     device = args.device
     device_type = device.split(":")[0]
     device_id = int(device.split(":")[1]) if ":" in device else 0
-
-    from isaacgym import gymapi
 
     sim_params = gymapi.SimParams()
     sim_params.up_axis = gymapi.UpAxis(gymapi.UpAxis.Z)
