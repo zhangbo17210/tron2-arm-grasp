@@ -67,7 +67,7 @@ def main():
     task = Tron2ArmGraspTask(
         cfg=Tron2ArmGraspCfg(),
         sim_params=sim_params,
-        physics_engine=gymapi.PhysXEngine,
+        physics_engine=0,  # 0 = PhysX
         device_type=device_type,
         device_id=device_id,
         headless=args.headless,
